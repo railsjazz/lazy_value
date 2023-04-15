@@ -12,3 +12,7 @@
 <%= lazy_value_tag do %>
   Hello world
 <% end %>
+
+<br>
+
+<%= lazy_value_tag { User.count } %>
