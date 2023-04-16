@@ -11,9 +11,10 @@ Functioning similarly to lazy Turbo frames, this value loader has no reliance on
 
 ## Main Benefits
 
-1. No reliance on JavaScript dependencies, such as Turbo
-2. Easy to implement with a "Plug & Play" approach
-3. Compatible with Turbo Frames
+1. Just 1 line of code
+2. No reliance on JavaScript dependencies, such as Turbo
+3. Easy to implement with a "Plug & Play" approach
+4. Compatible with Turbo Frames
 
 ## Essential Information & Constraints
 
