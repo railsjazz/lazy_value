@@ -22,6 +22,7 @@ It works similar to lazy Turbo frames, but it has no dependency on turbo. Also y
 1. Works with ERB only (at least for now)
 2. Every lazy value must be atomic and not depend on any value recevied outside it. It means it cannot access variables initialized in the controller/view.
 3. Use one lazy_value_tag in a line
+4. Pay attenation to format how you adding this block. Just copy-paste from the readme.
 
 ## Usage
 
