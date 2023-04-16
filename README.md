@@ -45,7 +45,7 @@ It works similar to lazy Turbo frames, but it has no dependency on turbo. Also y
 
 It also works with partials:
 
-```
+```erb
 <div class="box">
   <%= lazy_value_tag do %>
     <strong>Random 5 users</strong>
