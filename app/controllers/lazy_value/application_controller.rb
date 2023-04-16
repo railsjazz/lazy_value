@@ -1,10 +1,10 @@
 module LazyValue
   class ApplicationController < ActionController::Base
-    REGEX = /<%= lazy_value_tag (?:do|{.+?}) %>(.+?)<% end %>|<%= lazy_value_tag { (.+?) } %>/m
+    REGEXP = /<%= lazy_value_tag(?:.*?)do %>(.*?)<% end %>|<%= lazy_value_tag { (.+?) } %>/m
     ERROR_MESSAGE = "Incorrect usage. Try to use \"lazy_value_tag do ... end\" or \"lazy_value_tag { ... }\""
 
     def show
-      matches = code.match(REGEX)
+      matches = code.match(REGEXP)
       if matches.present? && matches[1].present?
         render plain: ActionController::Base.render(inline: matches[1])
       elsif matches.present? && matches[2].present?
@@ -24,8 +24,16 @@ module LazyValue
       data = JSON.parse(LazyValue.cryptography.decrypt_and_verify(payload))
       # some security checks
       raise "Incorrect file path" if data["path"] !~ /^#{Rails.root}/ || data["path"].include?("..")
-
-      File.read(data["path"]).lines[data["lineno"]-1..-1].join
+      # I want to return only first found lazy_value_tag snippet
+      snippet = File.read(data["path"]).lines[data["lineno"]-1..-1]
+      result = []
+      times = 0
+      snippet.map do |line|
+        times += 1 if line =~ /<%= lazy_value_tag/
+        break if times > 1
+        result << line
+      end
+      result.join
     end
   end
 end

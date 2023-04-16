@@ -1,30 +1,66 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-
-<%= lazy_value_tag do %>
-  <h1><% sleep(rand(1.0)) %><%= User.count %></h1>
-<% end %>
-
-<%= lazy_value_tag do %>
-  <h2><% sleep(1) %> <%= User.count * 100 %></h2>
-<% end %>
-
-<%= lazy_value_tag do %>
-  111111111111
-<% end %>
-
-<br>
-
-<%= lazy_value_tag do %>
-  <%= render "/home/users", users: User.limit(10).order("random()") %>
-<% end %>
-
-<br>
-
-<%= lazy_value_tag { User.count } %>
-
-<hr>
-
-<turbo-frame id="messages" src="/lazy" loading="lazy">
-  Content will be replaced when the frame becomes visible and /messages has been loaded.
-</turbo-frame>
+<section class="section">
+  <div class="container">
+      <h1 class="title">Dashboard</h1>
+      <div class="columns is-multiline">
+          <div class="column is-one-quarter">
+              <div class="box has-text-centered">
+                  <h2 class="subtitle">Number 1</h2>
+                  <%= lazy_value_tag style: "display: inline-block; margin-top: -20px;" do %>
+                    <% sleep(0.5) %>
+                    <p class="title"><%= 4242 %>$</p>
+                  <% end %>
+              </div>
+          </div>
+          <div class="column is-one-quarter">
+              <div class="box has-text-centered">
+                  <h2 class="subtitle">Number 2</h2>
+                  <%= lazy_value_tag do %>
+                    <% sleep(2) %>
+                    <p class="title"><%= 100 %>%</p>
+                  <% end %>
+              </div>
+          </div>
+          <div class="column is-one-quarter">
+              <div class="box has-text-centered">
+                  <h2 class="subtitle">Number 3</h2>
+                  <p class="title">
+                    <%= lazy_value_tag { 7000 } %>
+                  </p>
+              </div>
+          </div>
+          <div class="column is-one-quarter">
+              <div class="box has-text-centered">
+                  <h2 class="subtitle">Number 4</h2>
+                  <%= lazy_value_tag do %>
+                    <% sleep(0.4) %>
+                    <p class="title"><%= 55 %>₴</p>
+                  <% end %>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-half">
+        <div class="box">
+          <%= lazy_value_tag do %>
+            <strong>Random 5 users</strong>
+            <%= render "/home/users", users: User.limit(5).order("random()") %>
+          <% end %>
+          <br>
+          <code>
+            <<%= "%= lazy_value_tag { User.count } %" %>>
+          </code>
+          <%= lazy_value_tag { User.count } %>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="box">
+          <turbo-frame id="messages" src="/lazy" loading="lazy">
+            Content will be replaced when the frame becomes visible and /messages has been loaded.
+          </turbo-frame>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
