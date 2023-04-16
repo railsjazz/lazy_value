@@ -3,5 +3,5 @@ LazyValue::Engine.routes.draw do
 end
 
 Rails.application.routes.draw do
-  mount_routes
+  mount_lazy_value_routes
 end
