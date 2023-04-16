@@ -11,7 +11,7 @@ module LazyValue
       options[:class] ||= "lazy-value-tag"
       options[:id] = element_id
 
-      data = LazyValue.message_encryptor.encrypt_and_sign(
+      data = LazyValue.cryptography.encrypt_and_sign(
         {
           path: kaller.path,
           lineno: kaller.lineno

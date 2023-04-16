@@ -3,7 +3,7 @@ module LazyValue
     REGEX = /<%= lazy_value_tag (?:do|{.+?}) %>(.+?)<% end %>|<%= lazy_value_tag { (.+?) } %>/m
 
     def show
-      data = JSON.parse(LazyValue.message_encryptor.decrypt_and_verify(payload))
+      data = JSON.parse(LazyValue.cryptography.decrypt_and_verify(payload))
       code = File.read(data["path"]).lines[data["lineno"]-1..-1].join
       str = code.match(REGEX)
 

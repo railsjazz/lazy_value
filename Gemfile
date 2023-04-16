@@ -8,3 +8,12 @@ gem "sqlite3"
 
 # Start debugger with binding.b [https://github.com/ruby/debug]
 # gem "debug", ">= 1.0.0"
+
+gem "sprockets-rails"
+gem "pry"
+gem "wrapped_print"
+
+group :test do
+  gem "capybara"
+  gem "selenium-webdriver"
+end

@@ -1,10 +1,13 @@
 # LazyValue
+
 Short description and motivation.
 
 ## Usage
+
 How to use my plugin.
 
 ## Installation
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -21,8 +24,13 @@ Or install it yourself as:
 $ gem install lazy_value
 ```
 
+## Testing
+
+`bin/rails test:system`.
+
 ## Contributing
-Contribution directions go here.
+
+You are welcome to contribute.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
