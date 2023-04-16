@@ -87,7 +87,12 @@ And that is it. Start using it.
 
 ## How it works
 
-
+1. We call `lazy_value_tag` in the view
+2. We save location from where it was called (with `caller_locations.first`), file + line number.
+3. We encrypt this info using `ActiveSupport::MessageEncryptor`, creating span with spinner, and JS snippet that will call `/lazy_value/show?payload=`
+4. In the controller we decrypt our data and reading ERB file and detecting our snippet
+5. Depending on the block syntax we evaluate ERB or Ruby.
+6. We return from the controller HTML that will replace snippen on the page.
 
 ## Testing
 
