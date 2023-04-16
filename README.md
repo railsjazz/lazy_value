@@ -17,10 +17,11 @@ It works similar to lazy Turbo frames, but it has no dependency on turbo. Also y
 2. "Plug & Play" approach
 3. Supports Turbo Frames
 
-## Important notes
+## Important notes & limitations
 
 1. Works with ERB only (at least for now)
 2. Every lazy value must be atomic and not depend on any value recevied outside it. It means it cannot access variables initialized in the controller/view.
+3. Use one lazy_value_tag in a line
 
 ## Usage
 
