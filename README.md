@@ -1,28 +1,26 @@
-# LazyValue
+# Lazy Value
 
 [![RailsJazz](https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/my_other.svg?raw=true)](https://www.railsjazz.com)
 [![Listed on OpenSource-Heroes.com](https://opensource-heroes.com/badge-v1.svg)](https://opensource-heroes.com/r/railsjazz/rails_live_reload)
 
 ![RailsLiveReload](docs/lazy_value.gif)
 
-Lazy loader for your Ruby on Rails views. Use it you want to parallelise loading of some info on the page. 
+Introducing a versatile value loader for your Ruby on Rails views, designed to optimize parallel loading of information on a page. This solution is perfect for scenarios where you need to display multiple stats, each taking 1-2 seconds to compute, thus causing a delay in page loading time.
 
-Typical use case: you need to show some stats numbers and usually it take 1-2 seconds to calculate each number. In case you have many of them on a single page it might take a while. This solution can help you with that.
+Functioning similarly to lazy Turbo frames, this value loader has no reliance on Turbo and eliminates the need for creating new actions to load data. Make your page loading experience smoother and more efficient with this practical solution.
 
-It works similar to lazy Turbo frames, but it has no dependency on turbo. Also you don't need to create a new actions to load data.
+## Main Benefits
 
-## Key advantages
+1. No reliance on JavaScript dependencies, such as Turbo
+2. Easy to implement with a "Plug & Play" approach
+3. Compatible with Turbo Frames
 
-1. No JavaScript dependencies (like Turbo)
-2. "Plug & Play" approach
-3. Supports Turbo Frames
+## Essential Information & Constraints
 
-## Important notes & limitations
-
-1. Works with ERB only (at least for now)
-2. Every lazy value must be atomic and not depend on any value recevied outside it. It means it cannot access variables initialized in the controller/view.
-3. Use one lazy_value_tag in a line
-4. Pay attenation to format how you adding this block. Just copy-paste from the readme.
+1. Currently compatible with ERB only
+2. Each lazy value should be atomic and not rely on any external value or variable initialized in the controller/view
+3. Limit usage to one lazy_value_tag per line
+4. Carefully follow the provided format when adding this block; refer to the README for guidance
 
 ## Usage
 
