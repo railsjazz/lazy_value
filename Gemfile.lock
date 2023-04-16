@@ -172,6 +172,10 @@ GEM
     sqlite3 (1.6.2-x86_64-darwin)
     thor (1.2.1)
     timeout (0.3.2)
+    turbo-rails (1.4.0)
+      actionpack (>= 6.0.0)
+      activejob (>= 6.0.0)
+      railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     websocket (1.2.9)
@@ -195,6 +199,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   sqlite3
+  turbo-rails
   wrapped_print
 
 BUNDLED WITH

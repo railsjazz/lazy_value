@@ -1,0 +1,16 @@
+<turbo-frame id="messages" target="_top">
+  This content is from lazy loaded turbo frame.
+
+  <br>
+
+  <%= lazy_value_tag do %>
+    <%= rand(1000) %>
+  <% end %>
+
+  <br>
+
+  <%= lazy_value_tag do %>
+    <%= "I'm lazy loaded from the turbo frame" %>
+  <% end %>
+
+</turbo-frame>

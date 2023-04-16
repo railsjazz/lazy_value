@@ -2,11 +2,11 @@
 <p>Find me in app/views/home/index.html.erb</p>
 
 <%= lazy_value_tag do %>
-  <h1><%= User.count %></h1>
+  <h1><% sleep(rand(1.0)) %><%= User.count %></h1>
 <% end %>
 
 <%= lazy_value_tag do %>
-  <h2><%= User.count * 100 %></h2>
+  <h2><% sleep(1) %> <%= User.count * 100 %></h2>
 <% end %>
 
 <%= lazy_value_tag do %>
@@ -15,4 +15,16 @@
 
 <br>
 
+<%= lazy_value_tag do %>
+  <%= render "/home/users", users: User.limit(10).order("random()") %>
+<% end %>
+
+<br>
+
 <%= lazy_value_tag { User.count } %>
+
+<hr>
+
+<turbo-frame id="messages" src="/lazy" loading="lazy">
+  Content will be replaced when the frame becomes visible and /messages has been loaded.
+</turbo-frame>
