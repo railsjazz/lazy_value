@@ -15,7 +15,7 @@
               <div class="box has-text-centered">
                   <h2 class="subtitle">Number 2</h2>
                   <%= lazy_value_tag do %>
-                    <% sleep(2) %>
+                    <% sleep(1) %>
                     <p class="title"><%= 100 %>%</p>
                   <% end %>
               </div>
@@ -24,6 +24,7 @@
               <div class="box has-text-centered">
                   <h2 class="subtitle">Number 3</h2>
                   <p class="title">
+                    <% sleep(0.5) %>
                     <%= lazy_value_tag { 7000 } %>
                   </p>
               </div>
