@@ -3,13 +3,28 @@ require "lazy_value/routes"
 require "lazy_value/engine"
 
 module LazyValue
-  mattr_accessor :cryptography
+  mattr_accessor :key
+  @@key = ENV["LAZY_VALUE_KEY"].presence || SecureRandom.hex(32)
 
-  @@cryptography = begin
-    len   = ActiveSupport::MessageEncryptor.key_len
-    salt  = SecureRandom.random_bytes(len)
-    key   = ActiveSupport::KeyGenerator.new(SecureRandom.hex(32)).generate_key(salt, len)
-    ActiveSupport::MessageEncryptor.new(key)
+  mattr_accessor :salt
+  @@salt = ENV["LAZY_VALUE_SALT"].presence || SecureRandom.hex(8)
+
+  def self.setup
+    yield(self)
+  end
+
+  def self.cryptography
+    @cryptography ||= begin
+      ActiveSupport::MessageEncryptor.new(derived_key)
+    end
+  end
+
+  def self.derived_key
+    key_generator.generate_key(salt, 32)
+  end
+
+  def self.key_generator
+    ActiveSupport::KeyGenerator.new(key, iterations: 1000)
   end
 
 end
