@@ -25,6 +25,17 @@ Functioning similarly to lazy Turbo frames, this value loader has no reliance on
 
 ## Usage
 
+It's strongly suggested to configure initializer (can be generated with `rails g lazy_value initializer`). You can put your credentials/secrets/env variable. It's needed to use the same encryption key between deploys or server instances.
+
+```ruby
+LazyValue.setup do |config|
+  config.salt = ENV["LAZY_VALUE_SALT"].presence || SecureRandom.random_bytes(ActiveSupport::MessageEncryptor.key_len)
+  config.key = ENV["LAZY_VALUE_KEY"].presence || SecureRandom.hex(32)
+end
+```
+
+And now you can use `lazy_value_tag` helper in your views:
+
 ```erb
 <div class="column is-one-quarter">
     <div class="box has-text-centered">
@@ -99,6 +110,13 @@ And that is it. Start using it.
 
 `bin/rails test:system`.
 
+## TODO
+
+- websockets options vs http
+- pass variables
+- change to modern JS?
+- use POST? (if payload might be too big)
+
 ## Contributing
 
 You are welcome to contribute.
@@ -109,4 +127,3 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 [<img src="https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/more_gems.png?raw=true"
 />](https://www.railsjazz.com/?utm_source=github&utm_medium=bottom&utm_campaign=rails_live_reload)
-

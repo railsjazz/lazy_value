@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency "rails"
+  # spec.add_dependency "globalid" # TODO: use in the future
   spec.add_development_dependency "puma"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "wrapped_print"
