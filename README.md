@@ -121,6 +121,9 @@ And that is it. Start using it.
 
 You are welcome to contribute.
 
+[<img src="https://opensource-heroes.com/svg/embed/railsjazz/lazy_value"
+/>](https://opensource-heroes.com/r/railsjazz/lazy_value)
+
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
