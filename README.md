@@ -2,6 +2,8 @@
 
 [![RailsJazz](https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/my_other.svg?raw=true)](https://www.railsjazz.com)
 
+[!["Buy Me A Coffee"](https://github.com/igorkasyanchuk/get-smart/blob/main/docs/snapshot-bmc-button-small.png?raw=true)](https://buymeacoffee.com/igorkasyanchuk)
+
 ![RailsLiveReload](docs/lazy_value.gif)
 
 Introducing a versatile value loader for your Ruby on Rails views, designed to optimize parallel loading of information on a page. This solution is perfect for scenarios where you need to display multiple stats, each taking 1-2 seconds to compute, thus causing a delay in page loading time.
@@ -120,12 +122,11 @@ And that is it. Start using it.
 
 You are welcome to contribute.
 
-[<img src="https://opensource-heroes.com/svg/embed/railsjazz/lazy_value"
-/>](https://opensource-heroes.com/r/railsjazz/lazy_value)
-
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 
 [<img src="https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/more_gems.png?raw=true"
 />](https://www.railsjazz.com/?utm_source=github&utm_medium=bottom&utm_campaign=lazy_value)
+
+[!["Buy Me A Coffee"](https://github.com/igorkasyanchuk/get-smart/blob/main/docs/snapshot-bmc-button-small.png?raw=true)](https://buymeacoffee.com/igorkasyanchuk)
